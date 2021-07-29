@@ -445,6 +445,22 @@ with the table.
   under the trajectory is maximum?
 \end{example}
 \begin{soln}
+  Notice that we have the parametrics
+  $$y(t)=v_0\sin\theta t-\frac{1}{2}gt^2$$
+  $$x(t)=v_0\cos\theta t$$
+  We want to maximize
+  $$\int_0^{2v_0\sin\theta g}y\ca{dx}=v_0\cos\theta\int_0^{2v_0\sin\theta g}y\ca{dt}$$
+  $$=v_0\cos\theta\left(\frac{v_0\sin\theta t^2}{2}-\frac{gt^3}{6}\right)\Big|_{0}^{2v_0\sin\theta g}$$
+  Which is
+  $$\frac{v_0^2\sin\theta\cos\theta \frac{4v_0^2}{g^2}\sin^2\theta}{2}-v_0\cos\theta g\frac{8v_0^3\sin^3\theta g^3}{6}$$
+  $$\frac{4v_0^4\sin^3\theta\cos\theta}{2g^2}-\frac{8v_0^4\sin^3\theta\cos\theta g^4}{6}$$
+  Which is of the form $c\sin^3\theta\cos\theta$ for a fixed constant $c$ that doesn't
+  depend on $\theta$. Thus it suffices to maximize $\sin^3\theta\cos\theta$.
+  Let $x=\sin\theta$. This expression is then
+  $$x^3\sqrt{1-x^2}=\sqrt{x^6-x^8}$$
+  Hence it suffices to maximize $x^6-x^8$. The derivative of this is
+  $$6x^5-8x^7=0\implies x=\frac{\sqrt{3}}{2}$$
+  And $\sin\theta=\frac{\sqrt{3}}{2}$, so $\theta=60$ degrees.
 \end{soln}
 \begin{example}
   [3.15]
