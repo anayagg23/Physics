@@ -1,0 +1,469 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{booktabs, verbatim, graphicx, framed, gensymb}
+\usepackage[sexy, hints]{evan}
+\newcommand{\ca}[1]{\mathrm{#1}}
+\title{Physics With Ram, Master Document}
+\author{Anay Aggarwal}
+
+\begin{document}
+
+\maketitle
+\section{Jamboards}
+\href{https://jamboard.google.com/d/1uoYdMKXinEdf1\_fIV\_Um4zPiH8XeXSZzDs1etD-xgbI/viewer?f=0}{Statics} \newline
+\href{https://jamboard.google.com/d/1ajkcgySLsFFmAIlD7kHRhOTfPmT233VM9uvkb6ygHFg/viewer?f=0}{Forces}
+\newpage
+\section{Statics}
+The term "statics" means stationary. In a static system, no objects have any acceleration.
+This means that two things are true:
+\begin{itemize}
+  \item The net force on the system is $0$.
+  \item The net torque (spin) on the system is $0$.
+\end{itemize}
+So when solving a statics problem, draw the free-body diagram and balance forces \& torque.
+There are $4$ main forces to understand:
+\begin{itemize}
+  \item Tension. Tension is force pulling on a point in a rope. For a massless rope, this force is the same to the left and to the right
+    at any instantaneous spot in the rope, even if it is bent around a pulley, etc. Ropes with mass are trickier to deal with, the general
+    idea is that tension is a function of a point on the rope.
+  \item Normal force is a force opposing a surface, perpendicular to that surface. Think of it as like a spring.
+  \item Friction is force opposing motion. The brief run-down is that kinetic friction satisfies $f_k=\mu_k N$ and static friction satisfies
+    $f_s\le \mu_s N$.
+  \item Gravity. The gravitational force between two bodies with masses $M,m$ and distance $R$ is
+    $$F=\frac{GMm}{R^2}$$
+    Where $G$ is a constant. For the earth, $\frac{GM}{R^2}=g$, hence the force is $mg$ downward in our reference frame.
+\end{itemize}
+On to problems.
+\begin{example}
+  [2.1 Red Book]
+  A rope with length $L$ and mass density per unit length $\rho$ is suspended
+  vertically from one end. Find the tension as a function of height along the rope.
+\end{example}
+\begin{soln}
+  Consider an instant in the rope. The force is $T(y)$ downward and
+  $T(y+\ca{dy})$ upward. The force of gravity is $\rho g\ca{dy}$. The system is static,
+  so newton's second law tells us that the net force is zero. Therefore,
+  $$T(y+\ca{dy})-T(y)-\rho g\ca{dy}=0 \implies T(y+\ca{dy})=T(y)+\rho g\ca{dy}$$
+  $$\frac{T(y+\ca{dy})-T(y)}{\ca{dy}}=\rho g$$
+  $$T'(y)=\rho g$$
+  $$T(y)=\int \rho g \ca{dy}=\rho g y$$
+\end{soln}
+\begin{example}
+  [2.2 Red Book]
+  A block sits on a plane that is inclined at an angle $\theta$.
+  Assume that the friction force is large enough to keep the block at rest.
+  What are the horizontal components of the friction and normal forces
+  acting on the block? For what $\theta$ are these horizontal components
+  maximum?
+\end{example}
+\begin{soln}
+  Drawing axes parallel to the hypotenuse of the ramp, we get that
+  $$N=mg\cos(\theta)$$
+  $$f_s=mg\sin(\theta)$$
+  The problem asks for the horizontal component with normal axes, which is
+  just $N\sin\theta=f_s\cos\theta=mg\sin\theta\cos\theta=\frac{mg\sin(2\theta)}{2}$.
+  This attains its maximum $\frac{mg}{2}$ at $\theta=45^{\degree}$.
+\end{soln}
+\newpage
+\begin{example}
+  [2.3 Red Book]
+  A frictionless tube lies in the vertical plane and is in the shape
+  of a function that has its endpoints at the same height but is otherwise
+  arbitrary. A chain with uniform mass per unit length lies in the tube from
+  end to end. Show that the chain doesn't move.
+\end{example}
+\begin{soln}
+  Consider an infinitesimal piece of the chain. We want the net force along
+  the direction of the tube to be $0$, so the sum of the forces
+  for each piece should be $0$. Since the pieces are infinitesimal,
+  we can sum them with an integral. In order words, we want to show that
+  $$\int a \ca{dm}=0$$
+  At infinitesimals, stuff is easy to work with, because we can assume the
+  piece of the chain to be a line. Let the function of the tube be $f(x)$.
+  Consider the following diagram.
+  \begin{center}\includegraphics[scale=0.3]{Diagram1.png}\end{center}
+  Notice that $f'(x)$ is defined to be the change in the y direction at
+  an instantaneous moment, i.e. the other leg of the triangle is $f'(x)dx$.
+  The hypotenuse, or length of the chain is then $\sqrt{f'(x)^2+1}dx$.
+  Hence the mass is $\rho\sqrt{f'(x)^2+1}dx$.
+  Since it is a ramp, notice that the force downward is $mg\sin\theta$.
+  Thus by newton's laws
+  $$ma=-mg\sin\theta\implies a=-g\sin\theta$$
+  But $\sin\theta=\frac{f'(x)dx}{\sqrt{f'(x)^2+1}dx}=\frac{f'(x)}{\sqrt{f'(x)^2+1}}$.
+  Hence it suffices to show that
+  $$\int \frac{f'(x)}{\sqrt{f'(x)^2+1}}\rho\sqrt{f'(x)^2+1}dx=0$$
+  $$\int \rho f'(x)=0$$
+  Which is true due to the fact that $f(x_{\ca{initial}})=f(x_{\ca{final}})$.
+\end{soln}
+\begin{example}
+  [2.4 Red Book]
+  A book of mass $M$ is positioned against a vertical wall. The coefficient
+  of friction between the book and the wall is $\mu$. You wish to keep the
+  book from falling by pushing on it with a force $F$ applied to an angle
+  $\theta$ with respect to the horizontal.
+  \begin{itemize}
+    \item For a given $\theta$, what is $\min F$?
+    \item For what $\theta$ is $\min F$ minimized? What is the said minimum?
+    \item What is the limiting value of $\theta$ such that there doesn't
+      exist an $F$?
+  \end{itemize}
+\end{example}
+\begin{soln}
+  The upward force applied is $F\sin\theta$. The downward force from the book
+  is $Mg$. The last force to worry about is friction, which we will denote by
+  $f_s$. We have $f_s\le \mu N=\mu F\cos\theta$. Hence we have
+  $$F\sin\theta+\mu F\cos\theta\ge Mg$$
+  $$F\ge \frac{Mg}{\sin\theta+\mu\cos\theta}$$
+  Solving the first part. For the second, we wish to maximize
+  $$\sin\theta+\mu\cos\theta$$
+  Taking the derivative w.r.t $\theta$, this is
+  $$\cos\theta-\mu\sin\theta=0\to \theta=\arctan\left(\frac{1}{\mu}\right)$$
+  Therefore we get
+  $$\sin\theta=\frac{1}{\sqrt{\mu^2+1}}$$
+  $$\cos\theta=\frac{\mu}{\sqrt{\mu^2+1}}$$
+  Hence $\sin\theta+\mu\cos\theta=\sqrt{\mu^2+1}$. Therefore,
+  $$\min\min F=\frac{Mg}{\sqrt{\mu^2+1}}$$
+  Onto the last part, there doesn't exist an $F$ if and only if
+  $$\sin\theta+\mu\cos\theta\le 0$$
+  The limiting value is $\sin\theta+\mu\cos\theta=0$. This implies that
+  said $\theta=\arctan(-\mu)$.
+\end{soln}
+\begin{example}
+  [2.5 Red Book]
+  A rope with length $L$ and mass density per unit length $\rho$ lies on a plane
+  inclined at an angle $\theta$. The top end is nailed to the plane, and the
+  coefficient of friction between the rope and the plane is $\mu$. What are
+  the possible values for the tension at the top of the rope?
+\end{example}
+\begin{soln}
+  The mass of the rope is $\rho L$. Choose the $x$ and $y$ axes as normally,
+  along the plane. Hence the force in the $x$ direction is $\rho Lg\sin\theta$.
+  The normal force is $N=\rho Lg\cos\theta$, hence the force of static friction is
+  $$f_s\le \mu N=\mu \rho Lg\cos\theta$$
+  Thus
+  $$T+\mu\rho Lg\cos\theta\ge \rho Lg\sin\theta$$
+  $$T\ge (\rho Lg)(\sin\theta-\mu\cos\theta)$$
+  But we also get the upper bound
+  $$T\le (\rho Lg)(\sin\theta+\mu\cos\theta)$$
+  The same way.
+\end{soln}
+\begin{example}
+  [2.6 Red Book]
+  Consider the two problems
+  \begin{itemize}
+    \item A disk of mass $M$ and radius $R$ is help up by a massless string.
+      The surface of the disk is frictionless. What is the tension
+      in the string? What is the normal force per unit length that the string
+      applies on the disk?
+    \item Let there now be friction between the disk and the string, with
+      coefficient $\mu$. What is the smallest possible tension in the string
+      at its lowest point?
+  \end{itemize}
+\end{example}
+\begin{soln}
+  The solutions are as follows.
+  \begin{itemize}
+    \item Notice that there is a tension $T$ upward in each end of the string,
+      hence $2T=Mg\to T=\frac{Mg}{2}$. At small instants in the rope, the normal
+      force is essentially just the tension. For an angle $\theta$, the normal
+      force is $N\theta$ and the length is $R\theta$, hence we want
+      $$\frac{N\theta}{R\theta}=\frac{N}{R}=\frac{Mg}{2R}$$
+    \item Using the rope wrapped around pole example,
+      $$T(\frac{\pi}{2})\le T(0)e^{\mu\frac{\pi}{2}}$$
+      $$T(0)\ge \frac{Mg}{2}e^{-\mu\frac{\pi}{2}}$$
+  \end{itemize}
+\end{soln}
+\begin{example}
+  [2.7 Red Book]
+  Each of the following planar objects is places (see figure $2.13$ in book)
+  between two frictionless circles of radius $R$. The mass densite per unit area
+  of each object is $\sigma$, and the radii to the points of contact make an
+  angle $\theta$ with the horizontal. For each case, find the horizontal
+  force that must be applied to the circles to keep them together. For
+  what $\theta$ is this force maximum or minimum?
+\end{example}
+\begin{soln}
+  For the first one, a bit of angle chasing (note the kites) yields that the angle at the apex of the triangle is $2\theta$.
+  Hence by the sine area formula, it's area is $L^2\sin(2\theta)\frac{1}{2}=L^2\sin\theta\cos\theta$. Hence the mass is $\sigma L^2\sin\theta\cos\theta$.
+  Let $F_{CT}$ be the force from the circle on the triangle. Notice that
+  $$2F_{CT}\sin\theta=mg=\sigma g L^2\sin\theta\cos\theta$$
+  $$F_{CT}=\frac{\sigma g L^2\cos\theta}{2}$$
+  We desire
+  $$F_{CT}\cos\theta=\frac{L^2\cos^2\theta \sigma g}{2}$$
+  Similarly for the other cases, the answer is just $\frac{mg\cos\theta}{2\sin\theta}$.
+  And $m=\sigma A$, where $A$ is the area. To find the area of the rectangle, simply draw in the isosceles trapezoid.
+  The unkown side is just $2R(1-\cos\theta)$, hence the area is $2RL(1-\cos\theta)$ and the mass is $2RL\sigma(1-\cos\theta)$. Therefore, the answer is
+  $$RL\sigma (1-\cos\theta)\cot\theta$$
+  The last case is a circle. It's a fun geometry puzzle to figure out the area of this. Connect the centers.
+  Let the small circle have radius $r$. Then 
+  $\frac{r+R}{\sin\theta}=\frac{2R}{\sin(180-2\theta)}=\frac{2R}{\sin(2\theta)}=\frac{R}{\sin\theta\cos\theta}$
+  $$r=R\left(\frac{1}{\cos\theta}-1\right)$$
+  And hence the answer is $\pi g R^2\left(\frac{1}{\cos\theta}-1\right)^2\sigma\frac{\cos\theta}{2\sin\theta}$.
+  This is equivalent to
+  $$\frac{\sigma g\pi R^2(1-\cos\theta)^2}{\sin(2\theta)}$$
+  Now, we must maximize each one. Fortunately this isn't too difficult because
+  we only must maximize the part that is dependent on $\theta$.
+  \begin{itemize}
+    \item The first case is to maximize $\cos\theta$, which occurs at
+      $\theta=0$. The minimum is at $\theta=\frac{\pi}{2}$.
+    \item The second case is to maximize $(1-\cos\theta)\cot\theta$. This is
+      $$f(\theta)=\frac{\cos\theta-\cos^2\theta}{\sin\theta}$$
+      Using the quotient rule,
+      $$f'(\theta)=\cos^3(\theta)-2\cos(\theta)+1=0$$
+      Hence
+      $$\theta=\arccos\left(\frac{-1+\sqrt{5}}{2}\right)$$
+      The minimimum is at both $\theta=\frac{\pi}{2}, 0$.
+    \item The third case goes to infinity as $\theta$ approaches
+      45 degrees. It's minimized at $\theta=0$.
+  \end{itemize}
+\end{soln}
+\begin{example}
+  [2.8 Red Book]
+  Consider the two problems:
+  \begin{itemize}
+    \item A chain with uniform mass density per unit length hangs
+      between two given points on two walls. Find the general shape of the
+      chain. Aside from an arbitrary additive constant, the function
+      describing the shape should contain one unknown constant.
+    \item The unknown constant in your answer depends on the horizontal
+      distance $d$ between the walls, and the vertical distance $\lambda$
+      between the support points, and the length $\ell$ of the chain. Write
+      the constant in terms of these quantities.
+  \end{itemize}
+\end{example}
+\begin{soln}
+\end{soln}
+\begin{example}
+  [2.9 Red Book]
+  A chain with uniform mass density per unit length hands between two supports located
+  at the same height, a distance $2d$ apart. What should the length of the chain be so that
+  the magnitude of the force at the supports is minimized?
+\end{example}
+\begin{soln}
+\end{soln}
+\newpage
+\section{Forces}
+\begin{example}
+  [3.1]
+  A massless pulley hangs from a fixed support. A massless string connnecting
+  two masses, $m_1$ and $m_2$, hangs over the pulley (see Fig. 3.11).
+  Find the acceleration of the masses and the tension in the string.
+\end{example}
+\begin{soln}
+  Note that the acceleration is constant, so
+  $$T-m_1g=m_1a$$
+  $$T-m_2g=-m_2a$$
+  Which, when solved, gives
+  $$a=\frac{m_2g-m_1g}{m_2+m_1}, T=\frac{2m_1m_2g}{m_2+m_1}$$
+\end{soln}
+\begin{example}
+  [3.2]
+  A double Atwood's machine is shown in Fig. 3.12, with masses $m_1, m_2, m_3$.
+  Find the acceleration of each mass.
+\end{example}
+\begin{soln}
+  The equations are
+  $$2T-m_1g=m_1a_1, T-m_2g=m_2a_2, T-m_3g=m_3a_3$$
+  And then from conservation of string,
+  $$a_1=\frac{-a_2-a_3}{2}$$
+  And the accelerations can be solved for as
+  $$a_1=g\frac{4m_2m_3-m_1m_2-m_1m_3}{4m_2m_3+m_1m_2+m_1m_3}$$
+  $$a_2=-g\frac{4m_2m_3+m_1m_2-3m_1m_3}{4m_2m_3+m_1m_2+m_1m+3}$$
+  $$a_3=-g\frac{4m_2m_3+m_1m_3-3m_2m_1}{4m_2m_3+m_1m_2+m_1m_3}$$
+\end{soln}
+\begin{example}
+  [3.3]
+  Consider the infinite Atwood’s machine shown in Fig. 3.13. A string
+passes over each pulley, with one end attached to a mass and the other
+end attached to another pulley. All the masses are equal to m, and all
+the pulleys and strings are massless. The masses are held fixed and then
+simultaneously released. What is the acceleration of the top mass? (You
+may define this infinite system as follows. Consider it to be made of
+N pulleys, with a nonzero mass replacing what would have been the
+(N + 1)th pulley. Then take the limit as $N\to\infty$.)
+\end{example}
+\begin{soln}
+  For a finite system, we get the equations
+  $$2T-mg=ma_1$$
+  $$2T-mg=ma_2$$
+  $$\cdots$$
+  $$T-mg=ma_{n}$$
+  $$T-mg=ma_{n+1}$$
+  Conservation of string equations aren't needed yet. We get that
+  $$g+a_1=g+a_2=\cdots=g+a_{n-1}=2g+2a_n=2g+2a_{n+1}$$
+  So $a_1=a_2=a_3...=a_{n-1}$. But by conservation of string, we get that
+  $$a_1=a_{n-1}=-\frac{a_n+a_{n+1}}{2}=-a_n$$
+  $$a_1=2a_n+g$$
+  $$a_n=-\frac{g}{3}$$
+  $$a_1=\frac{g}{3}$$
+\end{soln}
+\begin{example}
+  [3.4]
+  $N+2$ equal masses hand from a system of pulleys, as shown in Fig. 3.14.
+  What are the accelerations of all the masses?
+\end{example}
+\begin{soln}
+  We have that
+  $$T-mg=ma$$
+  $$2T-mg=ma_1$$
+  But $2a_1N=-2a$ by conservation of string. Hence
+  $$a=-\frac{Ng}{2N+1}, a_1=\frac{g}{2N+1}$$
+\end{soln}
+\begin{example}
+  [3.5]
+  Consider the system of pulleys shown in FIg. 3.15. The string (which is a loop with no ends)
+  hangs over $N$ fixed pulleys that circle around the underside of a ring.
+  $N$ masses, $m_1, m_2,\cdots, m_N$ are attached to $N$ pulleys that hang
+  on the string. What are the accelerations of all the masses.
+\end{example}
+\begin{soln}
+  We get
+  $$2T-m_k g=m_ka_k$$
+  For each $k$. Since the masses are placed around a ring,
+  $$a_1+a_2+...+a_N=0$$
+  But $a_k=\frac{2T-m_k g}{m_k}$. Hence
+  $$\sum a_k=\sum \frac{2T}{m_k}-g=2T\sum \frac{1}{m_k}-Ng=0$$
+  $$T=\frac{Ng}{2\sum \frac{1}{m_k}}$$
+  And hence
+  $$a_k=\frac{\frac{Ng}{\sum \frac{1}{m_k}}-m_k g}{m_k}$$
+\end{soln}
+\begin{example}
+  [3.6]
+  Problems are as follows:
+  \begin{itemize}
+    \item A block starts at rest and slides down a frictionless plane
+      inclined at an angle $\theta$. What should $\theta$ be so that the block
+      travels a given horizontal distance in the minimum amount of time.
+    \item Same question, now there is a coefficient of friction $\mu$.
+  \end{itemize}
+\end{example}
+\begin{soln}
+  Consider the following solutions.
+  \begin{itemize}
+    \item Suppose the distance is $d$ and the time is $t$. The force downward
+      has magnitude $mg$, so the force down the plane has magnitude
+      $mg\sin\theta$. Hence the acceleration is $g\sin\theta$. The
+      initial velocity is zero, so we can use
+      $$d=\frac{1}{2}at^2$$
+      $$g\sin\theta=\frac{2d}{t^2}$$
+      $$\theta=\arcsin\left(\frac{2d}{t^2 g}\right)$$
+      We want theta such that $t$ is minimized, so $\theta=45$.
+    \item Same thing, except the acceleration is now $g\sin\theta-\mu g\cos\theta$.
+      Hence
+      $$g\sin\theta-\mu g\cos\theta=\frac{2d}{t^2}$$
+      $$\sin\theta-\mu\cos\theta=\frac{2d}{t^2 g}$$
+      For now, define $y:=\frac{2d}{t^2 g}$.
+      Let $x=\sin\theta$. We want to solve
+      $$x-y=\mu \sqrt{1-x^2}$$
+      $$(x-y)^2=\mu^2(1-x^2)$$
+      $$x^2-2xy+y^2=\mu^2-x^2\mu^2$$
+      $$x^2(1+\mu^2)-2xy+y^2-\mu^2=0$$
+      $$x=\frac{2y\pm 2\sqrt{y^2+(1+\mu^2)\mu^2}}{2+2\mu^2}$$
+      $$x=\frac{y\pm \sqrt{y^2+\mu^2+\mu^4}}{1+\mu^2}$$
+      Taking only the positive value,
+      $$\theta=\arcsin\left(\frac{\frac{2d}{t^2g}+\sqrt{\frac{4d^2}{t^4g^2}+\mu^2+\mu^4}}{1+\mu^2}\right)$$
+      To minimize $t$, we want the value in the parentheses to be fixed as a small value,
+      specifically $\theta=\frac{\arctan(-\frac{1}{\mu})}{2}$ (which can be obtained with nasty calculations after taking the derivative).
+\end{itemize}
+\end{soln}
+\begin{example}
+  [3.8]
+  A block of mass $m$ is held motionless on a frictionless plane of mass $M$
+  and angle of inclination $\theta$ (see Fig. 3.16). The plane rests on a
+  frictionless horizontal surface. The block is released. What is the
+  horizontal acceleration of the plane?
+\end{example}
+\begin{soln}
+  Note that we have
+  $$mg-N\cos\theta=ma_y$$
+  $$N\sin\theta=ma_x=Ma'_x$$
+  Hence $N=\frac{mg-ma_y}{\cos\theta}=\frac{ma_x}{\sin\theta}$.
+  Thus $a_x=(g-a_y)\tan\theta$.
+  In addition, the ratio of the y accleration to the x acceleration must
+  remain $\tan\theta$, so
+  $$a_y=(a_x+a'_x)\tan\theta$$
+  $$mg-N\cos\theta=N\sin\theta+\frac{m}{M'}N\sin\theta$$
+  $$mg-N\cos\theta=N\sin\theta(\frac{M'+m}{M'})$$
+  A bunch of algebra gives
+  $$a'_x=\frac{mg\sin\theta\cos\theta}{M+m\sin^2\theta}$$
+\end{soln}
+\begin{example}
+  [3.9]
+  A particle of mass $m$ is subject to a force $F(t)=ma_0e^{-bt}$.
+  The initial position and speed are zero. Find $x(t)$.
+\end{example}
+\begin{soln}
+  The magnitude of the acceleration is hence $a=a_0e^{-bt}$.
+  Notice
+  $$\frac{\mathrm{d}^2x}{\mathrm{d}t^2}=a_0e^{-bt}$$
+  $$x=\int \int a_0e^{-bt}\ca{dt}\ca{dt}$$
+  Now,
+  $$\int a_0e^{-bt}\ca{dt}=a_0\int e^{-bt}\ca{dt}=\frac{a_0e^{-bt}}{-b}+C_1$$
+  The initial speed is zero so
+  $$C_1=\frac{a_0}{b}$$
+  Then
+  $$x=\frac{a_0e^{-bt}}{b^2}+\frac{a_0}{b}t+C_2$$
+  Now, the initial position is zero, so likewise we find
+  $$C_2=-\frac{a_0}{b^2}$$
+  Thus
+  $$x(t)=\frac{a_0e^{-bt}}{b^2}+\frac{a_0}{b}t-\frac{a_0}{b^2}$$
+\end{soln}
+\begin{example}
+  [3.10]
+  Same question just initial position is $x_0$ and $F(x)=-kx$.
+\end{example}
+\begin{soln}
+  We have that
+  $$mv\frac{\ca{dv}}{\ca{dx}}=-kx$$
+  $$mv\ca{dx}=-kx\ca{dx}$$
+  $$\int_{x_0}^x -kx\ca{dx}=\int_0^v mv\ca{dv}$$
+  $$kx_0^2-kx^2=mv^2$$
+  Employing $\omega=\sqrt{\frac{k}{m}}$, this is
+  $$v=\omega\sqrt{x_0^2-x^2}$$
+  $$\int_{x_0}^x\frac{1}{\sqrt{x_0^2-x^2}}\ca{dx}=\int_0^t \omega\ca{dt}$$
+  $$\int_{x_0}^x \frac{1}{\sqrt{x_0^2-x^2}}\ca{dx}=\omega t$$
+  Substitute $x=x_0\cos\theta$, then
+  $$\int_{0}^{\theta} \frac{1}{x_0\sin\theta}\ca{dx}=\int_{0}^{\theta} -\ca{d}\theta$$
+  Hence $\theta=-\omega t$, and $x=x_0\cos(\omega t)$
+\end{soln}
+\begin{example}
+  [3.11]
+  A chain with length $\ell$ is held stretched out on a frictionless horizontal
+table, with a length $y_0$ hanging down through a hole in the table. The
+chain is released. As a function of time, find the length that hangs down
+through the hole (don’t bother with t after the chain loses contact with
+the table). Also, find the speed of the chain right when it loses contact
+with the table.
+\end{example}
+\begin{soln}
+\end{soln}
+\begin{example}
+  [3.14]
+  A ball is thrown at speed $v$ from zero height on level ground.
+  At what angle should it be thrown so that the area
+  under the trajectory is maximum?
+\end{example}
+\begin{soln}
+\end{soln}
+\begin{example}
+  [3.15]
+  A ball is thrown straight upward so that it reaches a height $h$.
+  It falls down and bounces repeatedly. After each bounce, it returns to
+  a certain fraction $f$ of its previous height. Find the total
+  distance traveled, and also the total time, before it comes to rest.
+  What is its average speed?
+\end{example}
+\begin{soln}
+\end{soln}
+\begin{example}
+  [3.17]
+  A ball is thrown with speed $v$ from the edge of a cliff of height $h$.
+  At what inclination angle should it be trhwon so that it travels
+  the maximum horizontal distance? What is this maximum distance?
+  Assume that the ground below the cliff is horizontal.
+\end{example}
+\begin{soln}
+\end{soln}
+
+\end{document}
