@@ -12,7 +12,8 @@
 \maketitle
 \section{Jamboards}
 \href{https://jamboard.google.com/d/1uoYdMKXinEdf1\_fIV\_Um4zPiH8XeXSZzDs1etD-xgbI/viewer?f=0}{Statics} \newline
-\href{https://jamboard.google.com/d/1ajkcgySLsFFmAIlD7kHRhOTfPmT233VM9uvkb6ygHFg/viewer?f=0}{Forces}
+\href{https://jamboard.google.com/d/1ajkcgySLsFFmAIlD7kHRhOTfPmT233VM9uvkb6ygHFg/viewer?f=0}{Forces} \newline
+\href{https://jamboard.google.com/d/19tQ1\_l9Pz5J62Dyj3KkGLjumSymWhyoXW8kS4kQQBSg/viewer?f=0}{More Forces}
 \newpage
 \section{Statics}
 The term "statics" means stationary. In a static system, no objects have any acceleration.
@@ -83,18 +84,18 @@ On to problems.
   piece of the chain to be a line. Let the function of the tube be $f(x)$.
   Consider the following diagram.
   \begin{center}\includegraphics[scale=0.3]{Diagram1.png}\end{center}
-  Notice that $f'(x)$ is defined to be the change in the y direction at
-  an instantaneous moment, i.e. the other leg of the triangle is $f'(x)dx$.
-  The hypotenuse, or length of the chain is then $\sqrt{f'(x)^2+1}dx$.
-  Hence the mass is $\rho\sqrt{f'(x)^2+1}dx$.
-  Since it is a ramp, notice that the force downward is $mg\sin\theta$.
-  Thus by newton's laws
-  $$ma=-mg\sin\theta\implies a=-g\sin\theta$$
-  But $\sin\theta=\frac{f'(x)dx}{\sqrt{f'(x)^2+1}dx}=\frac{f'(x)}{\sqrt{f'(x)^2+1}}$.
-  Hence it suffices to show that
-  $$\int \frac{f'(x)}{\sqrt{f'(x)^2+1}}\rho\sqrt{f'(x)^2+1}dx=0$$
-  $$\int \rho f'(x)=0$$
-  Which is true due to the fact that $f(x_{\ca{initial}})=f(x_{\ca{final}})$.
+    Notice that $f'(x)$ is defined to be the change in the y direction at
+    an instantaneous moment, i.e. the other leg of the triangle is $f'(x)dx$.
+    The hypotenuse, or length of the chain is then $\sqrt{f'(x)^2+1}dx$.
+    Hence the mass is $\rho\sqrt{f'(x)^2+1}dx$.
+    Since it is a ramp, notice that the force downward is $mg\sin\theta$.
+    Thus by newton's laws
+    $$ma=-mg\sin\theta\implies a=-g\sin\theta$$
+    But $\sin\theta=\frac{f'(x)dx}{\sqrt{f'(x)^2+1}dx}=\frac{f'(x)}{\sqrt{f'(x)^2+1}}$.
+    Hence it suffices to show that
+    $$\int \frac{f'(x)}{\sqrt{f'(x)^2+1}}\rho\sqrt{f'(x)^2+1}dx=0$$
+    $$\int \rho f'(x)=0$$
+    Which is true due to the fact that $f(x_{\ca{initial}})=f(x_{\ca{final}})$.
 \end{soln}
 \begin{example}
   [2.4 Red Book]
@@ -196,7 +197,7 @@ On to problems.
   The unkown side is just $2R(1-\cos\theta)$, hence the area is $2RL(1-\cos\theta)$ and the mass is $2RL\sigma(1-\cos\theta)$. Therefore, the answer is
   $$RL\sigma (1-\cos\theta)\cot\theta$$
   The last case is a circle. It's a fun geometry puzzle to figure out the area of this. Connect the centers.
-  Let the small circle have radius $r$. Then 
+  Let the small circle have radius $r$. Then
   $\frac{r+R}{\sin\theta}=\frac{2R}{\sin(180-2\theta)}=\frac{2R}{\sin(2\theta)}=\frac{R}{\sin\theta\cos\theta}$
   $$r=R\left(\frac{1}{\cos\theta}-1\right)$$
   And hence the answer is $\pi g R^2\left(\frac{1}{\cos\theta}-1\right)^2\sigma\frac{\cos\theta}{2\sin\theta}$.
@@ -275,13 +276,13 @@ On to problems.
 \begin{example}
   [3.3]
   Consider the infinite Atwood’s machine shown in Fig. 3.13. A string
-passes over each pulley, with one end attached to a mass and the other
-end attached to another pulley. All the masses are equal to m, and all
-the pulleys and strings are massless. The masses are held fixed and then
-simultaneously released. What is the acceleration of the top mass? (You
-may define this infinite system as follows. Consider it to be made of
-N pulleys, with a nonzero mass replacing what would have been the
-(N + 1)th pulley. Then take the limit as $N\to\infty$.)
+  passes over each pulley, with one end attached to a mass and the other
+  end attached to another pulley. All the masses are equal to m, and all
+  the pulleys and strings are massless. The masses are held fixed and then
+  simultaneously released. What is the acceleration of the top mass? (You
+  may define this infinite system as follows. Consider it to be made of
+  N pulleys, with a nonzero mass replacing what would have been the
+  (N + 1)th pulley. Then take the limit as $N\to\infty$.)
 \end{example}
 \begin{soln}
   For a finite system, we get the equations
@@ -365,7 +366,7 @@ N pulleys, with a nonzero mass replacing what would have been the
       $$\theta=\arcsin\left(\frac{\frac{2d}{t^2g}+\sqrt{\frac{4d^2}{t^4g^2}+\mu^2+\mu^4}}{1+\mu^2}\right)$$
       To minimize $t$, we want the value in the parentheses to be fixed as a small value,
       specifically $\theta=\frac{\arctan(-\frac{1}{\mu})}{2}$ (which can be obtained with nasty calculations after taking the derivative).
-\end{itemize}
+  \end{itemize}
 \end{soln}
 \begin{example}
   [3.8]
@@ -430,13 +431,19 @@ N pulleys, with a nonzero mass replacing what would have been the
 \begin{example}
   [3.11]
   A chain with length $\ell$ is held stretched out on a frictionless horizontal
-table, with a length $y_0$ hanging down through a hole in the table. The
-chain is released. As a function of time, find the length that hangs down
-through the hole (don’t bother with t after the chain loses contact with
-the table). Also, find the speed of the chain right when it loses contact
-with the table.
+  table, with a length $y_0$ hanging down through a hole in the table. The
+  chain is released. As a function of time, find the length that hangs down
+  through the hole (don’t bother with t after the chain loses contact with
+  the table). Also, find the speed of the chain right when it loses contact
+  with the table.
 \end{example}
 \begin{soln}
+  Suppose the chain has density $\rho$. Suppose the chain
+  has a length $y$ down the hole. Consider forces, we get the differential equation
+  $$a=\frac{g}{\ell}y$$
+  Which is the differential equation for SHM with $\omega=\sqrt{\frac{g}{\ell}}$ and
+  without a factor of $i$. Hence the solution is
+  $$y=y_0\cosh\left(\sqrt{\frac{g}{\ell}}t\right)$$
 \end{soln}
 \begin{example}
   [3.14]
@@ -471,15 +478,191 @@ with the table.
   What is its average speed?
 \end{example}
 \begin{soln}
+  The total distance is just
+  $$2h(1+f+f^2+f^3+...)=\frac{2h}{1-f}$$
+  For a distance $d$, the acceleration is $-g$, so the distance is $-\frac{1}{2}gt^2=-d$, so $t=\sqrt{\frac{2d}{g}}$.
+  It takes the same amount of time to go back up so each one is $2\sqrt{\frac{2d}{g}}$. So we want
+  $$2\sqrt{\frac{2h}{g}}+2\sqrt{\frac{2hf}{g}}+2\frac{\frac{2hf^2}{g}}+...=2\sqrt{\frac{2h}{g}}\left(1+\sqrt{f}+\sqrt{f^2}+...\right)$$
+  $$=2\sqrt{\frac{2h}{g}}\frac{1}{1-\sqrt{f}}$$
+  The average speed is then
+  $$\frac{\frac{2h}{1-f}}{\frac{2\sqrt{\frac{2h}{g}}}{1-\sqrt{f}}}$$
+  $$\frac{h(1-\sqrt{f})}{\sqrt{\frac{2h}{g}}(1-f)}$$
+  $$\frac{h\sqrt{g}(1-\sqrt{f})}{\sqrt{2h}(1-f)}$$
 \end{soln}
 \begin{example}
   [3.17]
   A ball is thrown with speed $v$ from the edge of a cliff of height $h$.
-  At what inclination angle should it be trhwon so that it travels
+  At what inclination angle should it be thrown so that it travels
   the maximum horizontal distance? What is this maximum distance?
   Assume that the ground below the cliff is horizontal.
 \end{example}
 \begin{soln}
+  Suppose it's thrown at an angle $\theta$. The velocity horizontally is $v\cos\theta$.
+  The velocity vertically is $v\sin\theta-gt$. Hence the change in horizontal distance is $v\sin\theta t-\frac{1}{2}gt^2$.
+  The initial position is $h$, the final position is $0$, so the change must be $-h$. Hence
+  $$\frac{1}{2}gt^2-v\sin\theta t+h=0$$
+  $$t=\frac{v\sin\theta+\sqrt{v^2\sin^2\theta-2gh}}{g}$$
+  Then the horizontal distance is
+  $$\frac{v^2\sin\theta\cos\theta+\sqrt{v^4\sin^2\theta\cos^2\theta-2ghv^2\cos^2\theta}}{g}$$
+  Which has maximum value $\frac{v^2}{g}\sqrt{1+\frac{2gh}{v^2}}$ at $\theta=\arcsin\left(\frac{1}{\sqrt{2+2gh/v^2}}\right)$.
 \end{soln}
+\begin{example}
+  [3.25]
+  The two problems:
+  \begin{itemize}
+    \item Find the acceleration of all the masses in Fig 3.18
+    \item Same question, just remove the last mass
+  \end{itemize}
+\end{example}
+\begin{soln}
+  The two solutions:
+  \begin{itemize}
+    \item We have the equations
+      $$T_k-m_k g=a_k$$
+      $$T_k=\frac{T}{2^{k-1}}$$
+      $$a_{n-1}=-\left(\frac{a_{n1}+a_{n2}}{2}\right)$$
+      When solved, we get
+      $$a_k=\frac{-3mg}{2^k}$$
+    \item idk
+  \end{itemize}
+\end{soln}
+\begin{example}
+  [3.26]
+  In the figure 3.19, find $M=f(m_1, m_2)$ such that it's stationary.
+\end{example}
+\begin{soln}
+  From problem 2.2, we just want
+  $$g\frac{4m_1m_2-M(m_1+m_2)}{4m_1m_2+M(m_1+m_2)}=0$$
+  $$M=\frac{4m_1m_2}{m_1+m_2}$$
+\end{soln}
+\begin{example}
+  [3.27]
+  Find the acceleration of the two masses in Fig. 3.20.
+\end{example}
+\begin{soln}
+  Drawing tensions, the first two equations are
+  $$T-mg=ma_1$$
+  $$4T-2mg=2ma_2\to 2T-mg=ma_2$$
+  We have three unknowns, so we need an equation derived from conservation
+  of string. Pushing the mass $m$ up a distance $d$, we see that
+  the mass $2m$ goes down a distance $2d$ (by tracking). So
+  $$x_1=2x_2$$
+  $$a_1=-2a_2$$
+  Which is our last equation. Solving, we get
+  $$a_2=\frac{g}{5}, a_1=-\frac{2g}{5}$$
+\end{soln}
+\begin{example}
+  [3.33]
+\end{example}
+\begin{soln}
+\end{soln}
+\begin{example}
+  [3.34]
+  Three identical cylinders are arranged in a triangle as shown in Fig. 3.27,
+  with the bottom two lying on the ground. The ground and the cylinders
+  are frictionless. You apply a constant horizontal force (directed to the
+  right) on the left cylinder. Let $a$ be the acceleration you give to the
+  system. For what range of $a$ will all three cylinders remain in contact
+  with each other?
+\end{example}
+\begin{soln}
+  The equations are
+  $$(N_1+N_2)\frac{\sqrt{3}}{2}=mg$$
+  $$(N_1-N_2)\frac{1}{2}=ma$$
+  $$a=\frac{F}{3m}$$
+  where $N_1,N_2$ are the normal forces unto the top cylinder.
+  The first two equations are from balancing forces, and the last one is trivial.
+  In order to have minimum acceleration, no normal force must be there
+  between the bottom two cylinders. Because then the bottom two cylinders have barely even touched yet. So, $N_2\frac{1}{2}=ma$. Solving gives
+  $a=\frac{g}{3\sqrt{3}}$
+  In order to have maximum acceleration, there must be no normal force between
+  the right one and the top one (i.e. $N_2=0$). This is because after that
+  contact is lost between those two cylinders. Solving, $a=\frac{g}{\sqrt{3}}$.
+  Therefore,
+  $$a\in \left[\frac{g}{3\sqrt{3}}, \frac{g}{\sqrt{3}}\right]$$
+\end{soln}
+\begin{example}
+  [3.36]
+\end{example}
+\begin{soln}
+\end{soln}
+\begin{example}
+  [3.37]
+  A particle with mass $m$ is subject to $F(v)=-bv^2$. $x_0=0$. Find $x(t)$
+\end{example}
+\begin{soln}
+  We have $a=\frac{\ca{dv}}{\ca{dt}}=-\frac{b}{m}v^2$.
+  So
+  $$\int \frac{1}{v^2}\ca{dx}=\int -\frac{b}{m}\ca{dt}=-\frac{b}{m}t$$
+  Solving, $v=\frac{\ca{dx}}{\ca{dt}}=\frac{m}{bt}$. So,
+  $$\int \ca{dx}=\int \frac{m}{bt}\ca{dt}$$
+  $$x(t)=\frac{m}{b}\ln(t)$$
+  Remembering $v_0$,
+  $$x(t)=\frac{m}{b}\ln(t)+v_0t$$
+\end{soln}
+\begin{example}
+  [3.43]
+  Find the horizontal distance of projectile motion with $g(t)=\beta t$, and maximize this using $\theta$. Initial velocity is $v_0$.
+\end{example}
+\begin{soln}
+  At an instant $t$, the horizontal speed is $$v_0\cos\theta$$ and the
+  vertical speed is $$v_0\sin\theta-\beta t^2$$
+  Hence the vertical distance is
+  $$v_0\sin\theta t-\frac{t^3\beta}{3}$$
+  upon integrating w.r.t $t$. Setting this equal to $0$,
+  $$t=\sqrt{\frac{3v_0\sin\theta}{\beta}}$$
+  So the total horizontal distance is
+  $$\sqrt{\frac{3v_0^3\sin\theta\cos^2\theta}{\beta}}$$
+  And hence it suffices to maximize $\sin\theta\cos^2\theta$.
+  Let $x=\sin\theta$, then the expression is
+  $$x(1-x^2)=x-x^3$$
+  The derivative is $1-3x^2=0\implies x=\frac{1}{\sqrt{3}}$, so
+  $\theta=\arcsin\left(\frac{1}{\sqrt{3}}\right)$
+\end{soln}
+\begin{example}
+  [3.44]
+  Newton gets angry at an apple, tries to chuck a rock at it but the apple falls out of the tree as he chucks the rock.
+  It's his lucky day though, the rock hits the apple. Why?
+\end{example}
+\begin{soln}
+  This problem is well-known, I've done it many times before.
+  It's because the rock falls with acceleration $g$,
+  and so does the apple, so they fall the same distance. If he aimed perfectly,
+  the rock will hit the apple.
+\end{soln}
+\begin{example}
+  [3.47]
+  You throw a ball with speed $v_0$ at a vertical wall, a distance $\ell$ away. At what angle should you throw the ball so that it hits the wall as high as
+  possible? Assume $\ell<\frac{v_0^2}{g}$ (why?).
+\end{example}
+\begin{soln}
+  The horizontal speed is $v_0\cos\theta$, so the time is $\frac{\ell}{v_0\cos\theta}$. So the vertical position is then
+  $$\frac{v_0\sin\theta\ell}{v_0\cos\theta}-\frac{g\ell^2}{2v_0^2\cos^2\theta}$$
+  The derivative is $\sec^2\theta-2\tan\theta\sec^2\theta$, so $\theta=\arctan\left(\frac12\right)$ maximizes.
+\end{soln}
+\begin{example}
+  [3.48]
+  A cannon, when aimed vertically, is observed to fire a ball to a maximum
+  height of L. Another ball is then fired with this same speed, but with the
+  cannon aimed up along a plane of length L, inclined at an angle $\theta$, as
+  shown in Fig. 3.31. What should $\theta$ be so that the ball travels the largest
+  horizontal distance, d, by the time it returns to the height of the top of
+  the plane?
+\end{example}
+\begin{soln}
+  Suppose the initial speed is $v_0$. The time it takes to reach the
+  max height is $t=\frac{v_0}{g}$. So the maximum height is
+  $$\frac{v_0^2}{g}-\frac{v_0^2}{2g}=\frac{v_0^2}{2g}=L$$
 
+\end{soln}
+\begin{example}
+  [3.50]
+\end{example}
+\begin{soln}
+\end{soln}
+\begin{example}
+  [3.52]
+\end{example}
+\begin{soln}
+\end{soln}
 \end{document}
