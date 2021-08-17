@@ -13,7 +13,8 @@
 \section{Jamboards}
 \href{https://jamboard.google.com/d/1uoYdMKXinEdf1\_fIV\_Um4zPiH8XeXSZzDs1etD-xgbI/viewer?f=0}{Statics} \newline
 \href{https://jamboard.google.com/d/1ajkcgySLsFFmAIlD7kHRhOTfPmT233VM9uvkb6ygHFg/viewer?f=0}{Forces} \newline
-\href{https://jamboard.google.com/d/19tQ1\_l9Pz5J62Dyj3KkGLjumSymWhyoXW8kS4kQQBSg/viewer?f=0}{More Forces}
+\href{https://jamboard.google.com/d/19tQ1\_l9Pz5J62Dyj3KkGLjumSymWhyoXW8kS4kQQBSg/viewer?f=0}{More Forces} \newline
+\href{https://jamboard.google.com/d/1MbDdIBIItbUHffvw165ii3ZKFlsYYW7sVqZbw3JTE5k/viewer?f=0}{Finishing Chapter 3}
 \newpage
 \section{Statics}
 The term "statics" means stationary. In a static system, no objects have any acceleration.
@@ -637,10 +638,9 @@ On to problems.
   It's his lucky day though, the rock hits the apple. Why?
 \end{example}
 \begin{soln}
-  This problem is well-known, I've done it many times before.
   It's because the rock falls with acceleration $g$,
   and so does the apple, so they fall the same distance. If he aimed perfectly,
-  the rock will hit the apple.
+  the rock will hit the apple. It's easy to see mathematically.
 \end{soln}
 \begin{example}
   [3.47]
@@ -650,7 +650,10 @@ On to problems.
 \begin{soln}
   The horizontal speed is $v_0\cos\theta$, so the time is $\frac{\ell}{v_0\cos\theta}$. So the vertical position is then
   $$\frac{v_0\sin\theta\ell}{v_0\cos\theta}-\frac{g\ell^2}{2v_0^2\cos^2\theta}$$
-  The derivative is $\sec^2\theta-2\tan\theta\sec^2\theta$, so $\theta=\arctan\left(\frac12\right)$ maximizes.
+  $$\ell\tan\theta-\frac{g\ell^2}{2v_0^2} \frac{1}{\cos^2\theta}$$
+  The derivative w.r.t $\theta$ is
+  $$\ell\sec^2\theta-\frac{g\ell^2}{v_0^2}\tan\theta\sec^2\theta=0$$
+  $$\tan\theta=\frac{v_0^2}{g\ell}$$
 \end{soln}
 \begin{example}
   [3.48]
@@ -684,8 +687,13 @@ On to problems.
 \end{soln}
 \begin{example}
   [3.50]
+  A cart is held at rest on an inclined plane. A tube is positioned in the
+  cart with its axis perpendicular to the plane. The cart is released, and
+  at some later time a ball is fired from the tube. Will the ball even-
+  tually land back in the tube?
 \end{example}
 \begin{soln}
+  Yes, sit in the cart. The ball is always directly above you.
 \end{soln}
 \begin{example}
   [3.52]
@@ -712,5 +720,152 @@ On to problems.
   $$4v^2\sin^2\theta\le 2v^2(\sin^2\theta+\cos^2\theta)+g^2=2v^2+g^2$$
   $$\sin^2\theta \le \frac{1}{2}+\frac{g^2}{4v^2}$$
   Which restricts $\theta$.
+\end{soln}
+\begin{example}
+  [3.49]
+  Throwing a projectile from a plane.
+\end{example}
+\begin{soln}
+  The solutions are
+  \begin{itemize}
+    \item Draw the horizontal line through the guy. Simple angle chasing shows
+      that his projectile motion is with angle $90-\theta$. Suppose he's at
+      the origin. The ball is then at $(v_0\sin\theta t,v_0\cos\theta t-\frac{1}{2}gt^2)$
+      For a point $(x,y)$ to be on the "plane" below the horizontal (really a line -- we're taking a cross-section)
+      we must have $\frac{-y}{x}=\tan\theta$. So we get the equation
+      $$\frac{\frac{1}{2}gt^2-v_0\cos\theta t}{v_0\sin\theta t}=\frac{\frac{1}{2}gt-v_0\cos\theta}{v_0\sin\theta}=\tan\theta$$
+      $$\frac{gt-2v_0\cos\theta}{v_0}=\frac{\sin^2\theta}{\cos\theta}$$
+      $$\frac{g}{v_0}t=\frac{\cos^2\theta + 1}{\cos\theta}$$
+      $$t=\frac{v_0\cos^2\theta+v_0}{g\cos\theta}$$
+      Assuming we just want the $y$ value, this is
+      $$\frac{v_0^2\cos^3\theta+v_0^2\cos\theta}{g\cos\theta}-\frac{v_0^2(\cos^2\theta+1)^2}{2g}$$
+      $$\frac{v_0^2(1-\cos^4\theta)}{2g}$$
+    \item Plugging in what we know from theta, the ball is at $(v_0t, -\frac{1}{2}gt^2)$.
+      Hence $\frac{\frac{1}{2}gt^2}{v_0t}=\tan\theta\implies \frac{g}{2v_0}t=\tan\theta$
+      Or $t=\frac{2v_0\tan\theta}{g}$. Hence the vertical distance is
+      $$\frac{2v_0^2\tan^2\theta}{g}$$
+  \end{itemize}
+\end{soln}
+\begin{example}
+  [3.51]
+\end{example}
+\begin{soln}
+
+\end{soln}
+\begin{example}
+  [3.54]
+  What is the speed of a satellite whose orbit is just above the earth’s
+  surface?
+\end{example}
+\begin{soln}
+  Equating
+  $$F=\frac{GMm}{r^2}=\frac{mv^2}{r}$$
+  We have that $v^2=\frac{GM}{r}$. Plugging in the numbers,
+  $$v=7.54\cdot 10^3\mathrm{m}/\mathrm{s}$$
+\end{soln}
+\begin{example}
+  [3.55]
+  A person stands on a scale at the equator. If the earth somehow stopped
+  spinning but kept its same shape, would the reading on the scale increase
+  or decrease? By what fraction?
+\end{example}
+\begin{soln}
+In circular motion, the weight decreases by the force towards the center,
+which is of magnitude $mr\omega^2$.
+\end{soln}
+\begin{example}
+  [3.56]
+\end{example}
+\begin{soln}
+\end{soln}
+\begin{example}
+  [3.57]
+  A bead lies on a frictionless hoop of radius $R$ that rotates around a vertical
+  diameter with constant angular frequency $\omega$, as shown in Fig. 3.32. What
+  should $\omega$ be so that the bead maintains the same position on the hoop,
+  at an angle $\theta$ with respect to the vertical? There is a special value of $\omega$;
+  what is it, and why is it special?
+\end{example}
+\begin{soln}
+  The only two forces on the bead are $mg$ downwards and
+  $$F=\frac{mv^2}{R\sin\theta}=mR\sin\theta\omega^2$$
+  Towards the center of it's rotation. Hence
+  $$R\sin\theta\omega^2\ge g\tan\theta$$
+  $$\omega \ge \sqrt{\frac{g}{R\cos\theta}}$$
+\end{soln}
+\begin{example}
+  [3.58]
+  Curve of masses swinging from the ceiling
+\end{example}
+\begin{soln}
+  Balancing forces for a single mass,
+  $$mg\tan\theta=m\ell\sin\theta\omega^2$$
+  $$\frac{\omega^2}{g}=\frac{1}{\ell \cos\theta}$$
+  The LHS is fixed, hence so is the RHS. For a point $(x,y)$,
+  $$\ell=\sqrt{x^2+y^2}$$
+  $$\cos\theta=\frac{y}{\sqrt{x^2+y^2}}$$
+  Hence this means that $\frac{1}{y}$ is fixed, and so is $y$. It's a horizontal line.
+
+\end{soln}
+\begin{example}
+  [3.59]
+  Swinging triangle
+\end{example}
+\begin{soln}
+  The equations are
+  $$T_1-\frac{T_3}{2}=mg$$
+  $$\frac{T_3\sqrt{3}}{2}=ma$$
+  $$T_2-\frac{T_3}{2}=\frac{mg}{2}$$
+  $$\frac{mg\sqrt{3}}{2}-\frac{T_3\sqrt{3}}{2}=ma$$
+  Which gives
+  $$T_1=\frac{5mg}{4}, T_2=\frac{3mg}{4}, T_3=\frac{mg}{2}$$
+  $$a=\frac{g\sqrt{3}}{4}$$
+\end{soln}
+\begin{example}
+  [3.61]
+  Find the radius of curvature at the top of a cycloid and find the velocity and acceleration vectors.
+\end{example}
+\begin{soln}
+  $$\mathbf{v}(t)=(\dot{x}, \dot{y})=(R\omega+R\omega\cos(\omega t), -R\sin(\omega t))$$
+  $$\mathbf{a}(t)=(\ddot{x}, \ddot{y})=(-R\omega^2\sin(\omega t), -R\omega \cos(\omega t))$$
+  At the top ($t=0$), $\mathbf{v}(0)=(2R\omega, 0)$ and $\mathbf{a}(0)=(0,-R\omega^2)$.
+  Using $|\mathbf{a}(0)|=\frac{|\mathbf{v(0)}|^2}{r}$, we get $r=4R$.
+\end{soln}
+\begin{example}
+  [3.62]
+  Various curvature radii in projectile motion.
+\end{example}
+\begin{soln}
+  At the beginning, the radius of curvature seems to be infinite since the
+  inward acceleartion is $0$. At the top, the downward acceleration is $g$.
+  The velocity vector has magnitude $v_0\cos\theta$. Hence
+  $$r=\frac{v_0^2\cos^2\theta}{g}$$
+  The maximum height is $\frac{v_0^2\sin^2\theta}{2g}$, half the maximum height
+  is $\frac{v_0^2\sin^2\theta}{4g}$. Hence
+  $$\frac{\sin^2\theta}{4}=\cos^2\theta$$
+  $$\tan\theta=\pm 2$$
+\end{soln}
+\begin{example}
+  [3.63]
+\end{example}
+\begin{soln}
+  The downward force on the car is $mg\sin\theta+\frac{mv^2}{r}\le \mu N=\mu mg\cos\theta$.
+  Hence
+  $$v\le \sqrt{r\mu g\cos\theta-g\sin\theta}$$
+\end{soln}
+\begin{example}
+  [3.64]
+\end{example}
+\begin{soln}
+\end{soln}
+\begin{example}
+  [3.65]
+\end{example}
+\begin{soln}
+\end{soln}
+\begin{example}
+  [3.66]
+\end{example}
+\begin{soln}
 \end{soln}
 \end{document}
