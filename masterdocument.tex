@@ -847,11 +847,18 @@ which is of magnitude $mr\omega^2$.
 \end{soln}
 \begin{example}
   [3.63]
+  Car riding on tilted plane.
 \end{example}
 \begin{soln}
-  The downward force on the car is $mg\sin\theta+\frac{mv^2}{r}\le \mu N=\mu mg\cos\theta$.
+  The downward force on the car at the top of the circle is $mg\sin\theta+\frac{mv^2}{r}\le \mu N=\mu mg\cos\theta$.
   Hence
   $$v\le \sqrt{r\mu g\cos\theta-g\sin\theta}$$
+  For part b, at the side of the circle there is $\frac{mv^2}{r}$ perpendicular
+  to $mg\sin\theta$ but they still must sum to something less than $\mu N$, so
+  $$\sqrt{\frac{m^2v^4}{r^2}+m^2g^2\sin^2\theta}\le \mu mg\cos\theta$$
+  $$\frac{m^2v^4}{r^2}+m^2g^2\sin^2\theta \le \mu^2 m^2 g^2 \cos^2 \theta$$
+  $$\frac{v^4}{r^2}\le \mu^2 g^2\cos^2\theta-g^2\sin^2\theta$$
+  $$v\le \sqrt[4]{\mu^2 r^2 g^2 \cos^2\theta-g^2r^2\sin^2\theta}$$
 \end{soln}
 \begin{example}
   [3.64]
@@ -860,12 +867,28 @@ which is of magnitude $mr\omega^2$.
 \end{soln}
 \begin{example}
   [3.65]
+  Bead pushed along hoop, when is acceleration purely horizontal?
 \end{example}
 \begin{soln}
+  The inward acceleration is $2g(1+\sin\theta)$. The tangential acceleration
+  is due to the normal force -- so it's $g\cos\theta$. The vertical components
+  must balance out, so
+  $$2g(1+\sin\theta)\sin\theta=g\cos^2\theta$$
+  Solving gives $\theta=\arcsin\left(\frac{1}{3}\right)$ or the bead is at the
+  top of the hoop.
 \end{soln}
 \begin{example}
   [3.66]
+  Same as 3.65, just find $N_x$.
 \end{example}
 \begin{soln}
+  $$N=mg\sin\theta+\frac{mv^2}{r}=mg\sin\theta+2mg(1+\sin\theta)=2mg+3mg\sin\theta$$
+  $$N_x=N\cos\theta=2mg\cos\theta+3mg\sin\theta\cos\theta=2mg\cos\theta+\frac{3}{2}mg\sin(2\theta)$$
+  To find the extrema, take the derivative to get
+  $$-2mg\sin\theta+3mg\cos(2\theta)=0$$
+  $$3\cos(2\theta)=2\sin\theta$$
+  $$3(1-2\sin^2\theta)=3-6\sin^2\theta=2\sin\theta$$
+  Let $x=\sin\theta$, then $6x^2+2x-3=0\implies x=\frac{-2\pm \sqrt{76}}{12}=\frac{-1\pm \sqrt{19}}{6}$.
+  Approximating and plugging, the max is $3.05mg$ and the min is $-0.31mg$.
 \end{soln}
 \end{document}
