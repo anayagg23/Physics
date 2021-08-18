@@ -748,9 +748,29 @@ On to problems.
 \end{soln}
 \begin{example}
   [3.51]
+  A hill is sloped downward at an angle $\beta$ with respect to the horizontal.
+  A projectile is fired with an initial velocity perpendicular to the hill.
+  When it eventually lands on the hill, let its velocity make an angle $\theta$
+  with respect to the horizontal. What is $\theta$? What $\beta$ yields the minimum
+  value of $\theta$? What is this minimum $\theta$?
 \end{example}
 \begin{soln}
-
+  The position is easy to find as
+  $$-\frac{1}{2}g\sin\beta t^2, v_0t-\frac{1}{2}g\cos \beta t^2$$
+  So the velocity vector is the derivative w.r.t $t$, or
+  $$(-g\sin\beta t, v_0-g\cos\beta t)$$
+  We know that the position vector makes an angle $\beta$ with the horizontal,
+  so $\tan\beta=\frac{y}{x}$. Solving,
+  $$t=\frac{2v_0\cos\beta}{g(\cos^2\beta-\sin^2\beta)}$$
+  Plugging this in for the velocity vector, it is
+  $$\left(-\frac{v_0\sin(2\beta)}{\cos^2\beta-\sin^2\beta}, \frac{v_0(\cos^2\beta-\sin^2\beta)-2v_0\cos\beta}{\cos^2\beta-\sin^2\beta}\right)$$
+  This makes an angle $\theta$ with the horizontal, so
+  $$\tan\theta=\frac{2\cos\beta+\sin^2\beta-\cos^2\beta}{\sin(2\beta)}$$
+  So we must minimize $\tan\theta$ to minimize $\theta$. Taking the derivative
+  of the expression in $\beta$, we get
+  $$\csc(2\beta)(2\sin(2\beta)-2\sin(\beta)+2\cot(2\beta)(-\sin^2(\beta)+\cos^2(\beta)-2\cos(\beta)))$$
+  Setting it equal to $0$ and bashing, $\beta=\arctan\left(\frac{1}{\sqrt{2}}\right)$
+  And $\theta=\arctan(2\sqrt{2})$
 \end{soln}
 \begin{example}
   [3.54]
@@ -770,8 +790,8 @@ On to problems.
   or decrease? By what fraction?
 \end{example}
 \begin{soln}
-In circular motion, the weight decreases by the force towards the center,
-which is of magnitude $mr\omega^2$.
+  In circular motion, the weight decreases by the force towards the center,
+  which is of magnitude $mr\omega^2$.
 \end{soln}
 \begin{example}
   [3.56]
