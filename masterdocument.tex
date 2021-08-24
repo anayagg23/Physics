@@ -15,6 +15,7 @@
 \href{https://jamboard.google.com/d/1ajkcgySLsFFmAIlD7kHRhOTfPmT233VM9uvkb6ygHFg/viewer?f=0}{Forces} \newline
 \href{https://jamboard.google.com/d/19tQ1\_l9Pz5J62Dyj3KkGLjumSymWhyoXW8kS4kQQBSg/viewer?f=0}{More Forces} \newline
 \href{https://jamboard.google.com/d/1MbDdIBIItbUHffvw165ii3ZKFlsYYW7sVqZbw3JTE5k/viewer?f=0}{Finishing Chapter 3}
+\href{https://jamboard.google.com/d/1dbo9FVwQZNCMXaT9OfHmJFNlvY1AcgZkJbSVOeSiLaU/viewer?f=0}{Oscillations}
 \newpage
 \section{Statics}
 The term "statics" means stationary. In a static system, no objects have any acceleration.
@@ -910,5 +911,134 @@ On to problems.
   $$3(1-2\sin^2\theta)=3-6\sin^2\theta=2\sin\theta$$
   Let $x=\sin\theta$, then $6x^2+2x-3=0\implies x=\frac{-2\pm \sqrt{76}}{12}=\frac{-1\pm \sqrt{19}}{6}$.
   Approximating and plugging, the max is $3.05mg$ and the min is $-0.31mg$.
+\end{soln}
+\section{Oscillations}
+\begin{example}
+  [4.1]
+  $x_1,x_2$ are such that $\ddot{x_1}^2=bx_1$ and same for $x_2$. Prove that $\ddot{x_1+x_2}^2\ne b(x_1+x_2)$
+\end{example}
+\begin{soln}
+  It trivially reduces to $$(\ddot{x_1}+\ddot{x_2})^2=b(x_1+x_2)\implies bx_1+bx_2+2\ddot{x_1}\ddot{x_2}=bx_1+bx_2$$
+  impossible.
+\end{soln}
+\begin{example}
+  [4.2]
+  Prove that as $a\to 0$, the solution of $\ddot{x}=ax$ goes to the solution of $\ddot{x}=0$, or $x=C+Dt$.
+\end{example}
+\begin{soln}
+  The solution is
+  $$x=Ae^{\sqrt{a}t}+Be^{-\sqrt{a}t}$$
+  $$=A(1+\sqrt{a}t)+B(1-\sqrt{a}t)$$
+  Which is linear in $t$.
+\end{soln}
+\begin{example}
+  [4.3]
+  Spring but it sticks to another mass at the end of it's cycle.
+\end{example}
+\begin{soln}
+  $$x(t)=d\cos(\sqrt{\frac{k}{m}}t+\phi)$$
+  $$x(0)=\frac{d}{2}\implies \cos(\phi)=\frac12\implies \phi=-60$$
+  $$v(t)=-d\sqrt{\frac{k}{m}}\sin(\sqrt{\frac{k}{m}}t+\phi)$$
+  $$v(0)=-d\sqrt{\frac{k}{m}}\sin(\phi)=d\sqrt{\frac{k}{m}}\sqrt{\frac32}$$
+  $$x_{new}(t)=C\cos(\sqrt{\frac{k}{2m}}t)+D\sin(\sqrt{\frac{k}{2m}}t)$$
+  $$x_{new}(0)=C=\frac{d}{2}$$
+  $$v_{new}(t)=-C\sin(\sqrt{\frac{k}{2m}}t)+D\cos(\sqrt{\frac{k}{2m}}t)$$
+  $$v_{new}(0)=D=\frac{-d\sqrt{\frac{3k}{m}}}{4}$$
+  $$\implies x_{new}(t)=\frac{d}{2}\cos(\sqrt{\frac{k}{2m}}t)-\frac{d}{4}\sqrt{\frac{3k}{m}}\sin(\sqrt{\frac{k}{2m}}t)$$
+  $$\ca{Amplitude}=\sqrt{\frac58}d$$
+\end{soln}
+\begin{example}
+  [4.4]
+  Average tension.
+\end{example}
+\begin{soln}
+  Using
+  $$T=mg\cos(A\cos(\omega t))+m\ell \omega^2 A^2\sin^2(\omega t)$$
+  And the taylor series for $\cos(A\cos(\omega t))$ since $A^3~0$,
+  we can integrate $t$ from $-\frac{\pi}{2}$ to $\frac{\pi}{2}$ to get
+  $$mg\left(1+\frac{A^2}{4}\right)$$
+\end{soln}
+\begin{example}
+  [4.5]
+  Velocity described by turntable
+\end{example}
+\begin{soln}
+  It's increasing by $v\sin(\omega t)$. Hence
+  $$x(t)=\int v\sin(\omega \ca{dt})\sim \int v \omega \ca {dt}=v\omega t$$
+\end{soln}
+\begin{example}
+  [4.9]
+\end{example}
+\begin{soln}
+\end{soln}
+\begin{example}
+  [4.10]
+  Spring system
+\end{example}
+\begin{soln}
+  We have
+  $$m\ddot{x_1}=-kx_1+\kappa(x_2-x_1)$$
+  $$m\ddot{x_2}=-kx_2-\kappa(x_2-x_1)$$
+  Solving,
+  $$x_1=\frac{a}{2}\cos(\omega t)+\frac{a}{2}\cos\left(\frac{k+2\kappa}{m}t\right)$$
+  And likewise for $x_2$ just with a minus instead of plus. Using product to sum,
+  we get the desired result. The motions are just waves. The amplitudes are $\cos(\epsilon t),\sin(\epsilon t)$.
+\end{soln}
+\begin{example}
+  [4.13]
+  Again $F(x)=kx$ with $k>0$.
+\end{example}
+\begin{soln}
+  It's
+  $$x(t)=Ae^{\omega t}+Be^{-\omega t}$$
+  We obviously have $A=0$ so $x(t)=Be^{-\omega t}$, then
+  $v(t)=-B\omega e^{-\omega t}=-x_0\omega e^{-\omega t}$. And $v_0=-x_0\omega$.
+\end{soln}
+\begin{example}
+  [4.14]
+\end{example}
+\begin{soln}
+\end{soln}
+\begin{example}
+  [4.15]
+  Amplitude of this wave
+\end{example}
+\begin{soln}
+  Just $\sqrt{C^2+D^2}$. This was used in an earlier problem if I recall correctly.
+\end{soln}
+\begin{example}
+  [4.16]
+  Inclined Spring.
+\end{example}
+\begin{soln}
+  Suppose there is a distance $x$ up the ramp. The length of the string is
+  $2x\sin\theta$. The force on each mass is $2kx\sin\theta$ forming an angle
+  $90-\theta$ with the ramp. Hence the force along the ramp is $2kx\sin^2\theta$.
+  The D.E. is
+  $$\ddot{x}=\frac{2k\sin^2\theta}{m}x$$
+  And so $\omega=\sin\theta \sqrt{\frac{2k}{m}}$
+  And $$f=\frac{\sin\theta}{\pi}\sqrt{\frac{k}{2m}}$$
+\end{soln}
+\begin{example}
+  [4.17]
+  String concatenation.
+\end{example}
+\begin{soln}
+  Part $a$ is trivially $k_1+k_2$.
+  For part $b$, $-k_1x_1=-k_2x_2$. And $x_{total}=x_1+x_2$. So
+  $$m\ddot{(x_1+x_2)}=m(\ddot{x_1}+\ddot{x_2})=-k_{eff}(x_1+x_2)$$
+  And some math gives $k_{eff}=\frac{k_1k_2}{k_1+k_2}$.
+\end{soln}
+\begin{example}
+  [4.18]
+  Changing the spring constant.
+\end{example}
+\begin{soln}
+  The system is static at $x=\frac{\ell}{2}$, so shift the system over this way. Then
+  $$x(t)=A\cos(\omega t)+B\sin(\omega t)$$
+  With $\omega=\sqrt{\frac{4k}{m}}$. Since it's shifted, $x(0)=\frac{-\ell}{2}$. Also, $v(0)=0$. Hence
+  $$x(t)=\frac{-\ell}{2}\cos(\omega t)$$
+  Shifting back,
+  $$x(t)=-\frac{\ell}{2}\cos(\omega t)+\frac{\ell}{2}$$
 \end{soln}
 \end{document}
