@@ -968,8 +968,16 @@ On to problems.
 \end{soln}
 \begin{example}
   [4.9]
+  Normal modes
 \end{example}
 \begin{soln}
+  $$\ddot{x_1}+2\omega^2 x_1-\omega^2 x_2=0$$
+  $$2\ddot{x_2}+2\omega^2 x_2-\omega^2 x_1=0$$
+  The matrix is
+  $$\begin{pmatrix}-\alpha^2+2\omega^2 & -\omega^2 \\ -\omega^2 & -2\alpha^2+2\omega^2\end{pmatrix}$$
+  Then the normal modes are
+  $$\begin{pmatrix}\sqrt{3}\pm 1 \\ -1\end{pmatrix}$$
+  After setting the determinant to $0$ and solving for $A$ in terms of $B$.
 \end{soln}
 \begin{example}
   [4.10]
@@ -996,8 +1004,13 @@ On to problems.
 \end{soln}
 \begin{example}
   [4.14]
+  Rope on pulley
 \end{example}
 \begin{soln}
+  By problem 2.1 the D.E. is
+  $$\ddot{x}=\frac{2g}{L}x$$
+  By problem 2.13,
+  $$v_0=-x_0\sqrt{\frac{2g}{L}}$$
 \end{soln}
 \begin{example}
   [4.15]
@@ -1055,5 +1068,78 @@ On to problems.
   $$x(t)=\frac{d}{2}\cos(\omega t)+\frac{d\sqrt{6}}{2}\sin(\omega t)$$
   And problem $4.15$ tells us that the amplitude of this is
   $$\frac{d\sqrt{7}}{2}$$
+\end{soln}
+\begin{example}
+  [4.20]
+  Kicking thing suspended by strings
+\end{example}
+\begin{soln}
+  For part a, draw the force diagram of the object at position $(x,y)$. Note that
+  there is a force of $k\sqrt{x^2+y^2}\sin\left(\arctan\left(\frac{y}{x}\right)\right)$
+  in the $y$-direction, but there is an equal and opposite force from the other string.
+  Hence the object just stays where the kick sends it and performs SHM with an effective spring
+  constant of $2k$. \\ \\
+  Part b is just a generalization of part a. The forces still balance,
+  and we still perform SHM, just with effective spring constant $k_1+k_2+\cdots+k_n$.
+\end{soln}
+\begin{example}
+  [4.23]
+  Corrections to the Pendulum
+\end{example}
+\begin{soln}
+  Balancing forces in the radial direction and using $\mathbf{F}=m\mathbf{a}=m\mathbf{v}\frac{\ca{dv}}{\ca{dx}}$,
+  $$v=\sqrt{2g\ell}\sqrt{\cos\theta-\cos\theta_0}$$
+  Since $\ca{dt}=\frac{\ca{dx}}{v}$, we can multiply the LHS by $\frac{\ca{dx}}{v}$ and the RHS by $\ca{dt}$.
+  $$\ca{dx}=\ell\ca{d}\theta=\sqrt{2g\ell}\sqrt{\cos\theta-\cos\theta_0}\ca{dt}$$
+  $$\int_0^{\theta_0}\ca{dt}=\sqrt{\frac{\ell}{2g}}\int_{0}^{\theta_0}\frac{\ca{d}\theta}{\sqrt{\cos\theta-\cos\theta_0}}$$
+  $$T=\sqrt{\frac{8\ell}{g}}\int_{0}^{\theta_0}\frac{\ca{d}\theta}{\sqrt{\cos\theta-\cos\theta_0}}$$
+  To evaluate the integral, note that $\cos\phi=1-2\sin^2\frac{\phi}{2}$. Hence
+  $$\int_0^{\theta_0}\frac{1}{\sqrt{\cos\theta-\cos\theta_0}}\ca{d}\theta$$
+  $$=\int_0^{\theta_0}\frac{1}{\sqrt{2}\sqrt{\sin^2\frac{\theta_0}{2}-\sin^2\frac{\theta}{2}}}\ca{d}\theta$$
+  $$=\frac{1}{\sqrt{2}}\int_0^{\theta_0}\frac{1}{\sqrt{\sin^2\frac{\theta_0}{2}-\sin^2\frac{\theta}{2}}}\ca{d}\theta$$
+  Now, let $\sin x=\frac{\sin\frac{\theta}{2}}{\sin\frac{\theta_0}{2}}$.
+  Differentiating, $\ca{d}\theta=\frac{2\sin^2\frac{\theta_0}{2}}{\cos\frac{\theta}{2}}\cos x\ca{d}x$
+  But $\sin^2 \frac{\theta}{2}=\sin^2 x\sin^2 \frac{\theta_0}{2}$. Hence the integral is
+  $$\frac{1}{\sqrt{2}}\int_0^{\theta_0}\frac{1}{\sqrt{\sin^2\frac{\theta}{2}(1-\sin^2 x)}}\ca{d}\theta$$
+  $$=\frac{1}{\sqrt{2}}\int_0^{\theta_0}\frac{1}{\sin\frac{\theta_0}{2}\cos x}\ca{d}\theta$$
+  Employing the substitution, the integral is
+  $$\frac{1}{\sqrt{2}}\int_0^{\pi/2}\frac{2\sin\frac{\theta_0}{2}}{\cos\frac{\theta}{2}}\cos x\frac{1}{\sin\frac{\theta_0}{2}\cos x}\ca{dx}$$
+  $$=\sqrt{2}\int_0^{\pi/2}\frac{1}{\cos\frac{\theta}{2}}\ca{dx}$$
+  But since $\sin\frac{\theta}{2}=\sin\frac{\theta_0}{2}\sin x$, we have
+  $\cos\frac{\theta}{2}=\sqrt{1-\sin^2\frac{\theta_0}{2}\sin^2 x}$. Hence the integral is
+  $$=\sqrt{2}\int_0^{\pi/2}\frac{1}{\sqrt{1-\sin^2\frac{\theta_0}{2}\sin^2 x}}\ca{dx}$$
+  Unfortunately, we can't get any further without approximating. Notice that the term in the integral
+  is of the form
+  $$\frac{1}{\sqrt{1-\omega^2}}$$
+  Which has taylor expansion
+  $$1+\frac{\omega^2}{2}+\frac{3\omega^4}{8}+\mathcal{O}(x^6)$$
+  To finish the problem, we only need the first two terms, but for accuracy all we need to do is take more terms.
+  Using this approximating, the integral is
+  $$\sqrt{2}\int_0^{\pi/2}1+\frac{\sin^2 \frac{\theta_0}{2}\sin^2 x}{2}\ca{dx}$$
+  $$=\sqrt{2}\left(\frac{\pi}{2}+\frac{\sin^2\frac{\theta_0}{2}}{2}\int_0^{\pi/2}\sin^2 x\ca{dx}\right)$$
+  Let's now work on computing that inner integral. By trig identities, it is
+  $$\frac{1}{2}\int_0^{\pi/2}1-\cos(2x)\ca{dx}$$
+  $$\frac{1}{2}\left(\frac{\pi}{2}-\int_0^{\pi/2}\cos(2x)\ca{dx}\right)$$
+  Now let $u=2x$ so that $\ca{du}=2\ca{dx}$. Then
+  $$\frac{1}{2}\int_0^{\pi/2}\cos(u)\ca{du}=-\frac{\sin\pi}{2}+\frac{\sin 0}{2}=0$$
+  Hence the $\sin^2$ integral is $\frac{\pi}{4}$. The entire integral then becomes
+  $$\sqrt{2}\left(\frac{\pi}{2}+\frac{\pi \sin^2\frac{\theta_0}{2}}{8}\right)$$
+  We can use the small angle approximation to further reduce it to
+  $$\pi\sqrt{2}\left(\frac{1}{2}+\frac{\theta_0^2}{32}\right)$$
+  Hence
+  $$T\approx \sqrt{\frac{8\ell}{g}}\sqrt{2}\frac{1}{2}\left(1+\frac{\theta_0^2}{16}+\mathcal{O}(\theta_0^4)\right)$$
+  $$T\approx 2\pi \sqrt{\frac{\ell}{g}}\left(1+\frac{\theta_0^2}{16}+\mathcal{O}(\theta_0^4)\right)$$
+  As desired.
+\end{soln}
+\begin{example}
+  [4.32]
+  Normal Modes for coupled oscillator
+\end{example}
+\begin{soln}
+  $$m\ddot{x_1}=-kx_1-k(x_1-x_2)$$
+  $$m\ddot{x_2}=-k(x_2-x_1)$$
+  $$\begin{pmatrix}-\alpha^2+2\omega^2 & -\omega^2 \\ -\omega^2 & -\alpha^2+\omega^2\end{pmatrix}$$
+  Hence the mode vectors are
+  $$\begin{pmatrix}-2 \\ \sqrt{5}-1\end{pmatrix}, \begin{pmatrix} 2 \\ \sqrt{5}+1\end{pmatrix}$$
 \end{soln}
 \end{document}
