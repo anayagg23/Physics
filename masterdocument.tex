@@ -14,8 +14,9 @@
 \href{https://jamboard.google.com/d/1uoYdMKXinEdf1\_fIV\_Um4zPiH8XeXSZzDs1etD-xgbI/viewer?f=0}{Statics} \newline
 \href{https://jamboard.google.com/d/1ajkcgySLsFFmAIlD7kHRhOTfPmT233VM9uvkb6ygHFg/viewer?f=0}{Forces} \newline
 \href{https://jamboard.google.com/d/19tQ1\_l9Pz5J62Dyj3KkGLjumSymWhyoXW8kS4kQQBSg/viewer?f=0}{More Forces} \newline
-\href{https://jamboard.google.com/d/1MbDdIBIItbUHffvw165ii3ZKFlsYYW7sVqZbw3JTE5k/viewer?f=0}{Finishing Chapter 3}
-\href{https://jamboard.google.com/d/1dbo9FVwQZNCMXaT9OfHmJFNlvY1AcgZkJbSVOeSiLaU/viewer?f=0}{Oscillations}
+\href{https://jamboard.google.com/d/1MbDdIBIItbUHffvw165ii3ZKFlsYYW7sVqZbw3JTE5k/viewer?f=0}{Finishing Chapter 3} \newline
+\href{https://jamboard.google.com/d/1dbo9FVwQZNCMXaT9OfHmJFNlvY1AcgZkJbSVOeSiLaU/viewer?f=0}{Oscillations} \newline
+\href{https://jamboard.google.com/d/1a9brHy7W-hm7C\_LCcwz4QAHZM4OQ06tv0LuvaHiV9q0/viewer?f=0}{Finishin Ch. 4}
 \newpage
 \section{Statics}
 The term "statics" means stationary. In a static system, no objects have any acceleration.
@@ -1083,6 +1084,22 @@ On to problems.
   and we still perform SHM, just with effective spring constant $k_1+k_2+\cdots+k_n$.
 \end{soln}
 \begin{example}
+  [4.22]
+  Stringy Projectile Motion
+\end{example}
+Letting $x(t)=A\cos(\omega t)+B\sin(\omega t)$ and similarly for $y$, using the
+conditions $x(0)=y(0)=0, \dot{x}(0)=v_0\cos\theta, \dot{y}(0)=v_0\sin\theta$,
+we get
+$$x(t)=\frac{v_0\cos\theta}{\omega}\sin(\omega t)$$
+$$y(t)=\frac{mg\cos\omega t-mg}{k}+\frac{v_0\sin\theta}{\omega}\sin(\omega t)$$
+Using $\sin(\omega t)\approx \omega t, \cos(\omega t)\approx 1-\omega t$
+we see that these are the equations of projectile motion. Small $\omega$ is
+essentially just $m>>k$, and large $\omega$ is $m<<k$. When the projectile
+is moving straight downward,
+$$\cos\omega t = 0$$
+At this point,
+$$y=-\frac{mg}{k}+\frac{v_0\sin\theta}{\omega}=0\implies \omega=\frac{kv_0\sin\theta}{mg}$$
+\begin{example}
   [4.23]
   Corrections to the Pendulum
 \end{example}
@@ -1132,7 +1149,7 @@ On to problems.
   As desired.
 \end{soln}
 \begin{example}
-  [4.32]
+  [4.31]
   Normal Modes for coupled oscillator
 \end{example}
 \begin{soln}
@@ -1141,5 +1158,24 @@ On to problems.
   $$\begin{pmatrix}-\alpha^2+2\omega^2 & -\omega^2 \\ -\omega^2 & -\alpha^2+\omega^2\end{pmatrix}$$
   Hence the mode vectors are
   $$\begin{pmatrix}-2 \\ \sqrt{5}-1\end{pmatrix}, \begin{pmatrix} 2 \\ \sqrt{5}+1\end{pmatrix}$$
+\end{soln}
+\begin{example}
+  [4.32]
+  Again normal modes for coupled oscillator but 3 modes
+\end{example}
+\begin{soln}
+  Equations:
+  $$m\ddot{x_1}=-kx_1+k(x_2-x_1)$$
+  $$m\ddot{x_2}=-k(x_3-x_2)-k(x_2-x_1)$$
+  $$m\ddot{x_3}=-kx_3-k(x_3-x_2)$$
+  Matrix:
+  $$\begin{pmatrix}-\alpha^2+2\omega^2 & -\omega^2 & 0 \\ -\omega^2 & -\alpha^2 & \omega^2 \\ 0 & -\omega^2 & -\alpha^2+2\omega^2\end{pmatrix}$$
+  Setting determinant equal to $0$:
+  $$\alpha=\pm \sqrt{2}\omega$$
+  $$\alpha=\pm \sqrt{2\pm \sqrt{2}}\omega$$
+  Normal mode vectors are proportional to
+  $$\begin{pmatrix}1 \\ 0 \\ -1\end{pmatrix}\cos(\omega \sqrt{2}t+\phi)$$
+  $$\begin{pmatrix}1 \\ -\sqrt{2} \\ 1\end{pmatrix}\cos(\omega \sqrt{2+\sqrt{2}}+\phi)$$
+  $$\begin{pmatrix}1 \\ \sqrt{2} \\ 1\end{pmatrix}\cos(\omega \sqrt{2-\sqrt{2}}+\phi)$$
 \end{soln}
 \end{document}
